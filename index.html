@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    .loginholder{
+        background-color: white;
+        margin: auto;
+        margin-top:5%;
+        width: 300px;
+        height: 400px;
+        padding: 25px 50px 50px 50px;
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+	}
+    .view
+	{
+        background-color:white;
+        margin-left:240px;
+        border-radius:16px;
+        padding:5px;
+        text-align:center;
+        text-decoration:none;
+        font-size:13px;
+        color:white;
+	}
+    body{
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+		background-color: #042f4b; 
+        align-content: center;
+	}
+    input{
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: solid;
+        background-color: white;
+	}
+    .buttonlog{
+        background: linear-gradient(120deg,#ffcc70 10%,#c850c0 50%,#4158d0 100%);
+        border-radius:16px;
+        color: white;
+        padding: 7px 100px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+	}
+    </style>
+  </head>
+  <body>
+    <div class="loginholder">
+        <center><h4>SIGN IN</h4>
+        <form action="login.php" method="post" name="frmlogin">
+        <input class="box" type="text" name="txtusername" size="30" id="name" style="height:35px;" class="no-outline" placeholder="Mobile number or emailaddress"><br><br>
+        <input type="password" id="passbox" name="txtpsswrd" size="30" style="height:35px;" class="no-outline" placeholder="Password"><br>
+        <div class="buttonshow">
+            <a class="view" onClick="psstotxt()"> <span class="fa fa-eye" style="font-size:20px;"></span></a><br><br>
+        </div>
+            <a class="buttonlog" onClick="login()">Log In</a>
+        </center><br>
+    </div>
+    <script lang="javascript">
+        function psstotxt(){
+            var g;
+            g=document.getElementById("passbox").type;
+            if(g=="password")
+            {
+             g="text";
+             document. getElementById("passbox"). type=g;
+            }
+            else if(g=="text")
+            { 
+             g="password";
+             document. getElementById("passbox"). type=g;
+            }
+        } 
+        function login(){
+            var a,b,c,d,e;
+            a=document.frmlogin.txtusername.value;
+            b=document.frmlogin.txtpsswrd.value;
+            c=b.charAt(0);
+            if((a=="")||(b=="")){
+            document.getElementById("name").style.border="3px solid red" 
+            document.getElementById("passbox").style.border="3px solid red" 
+            }
+            else if (a.length<4)
+            {
+            alert("Username must have atleast 4 characters");
+            return;
+            }
+            else if(b.length<6)
+            {
+            alert("Password must have atleast 6 characters");
+            return;
+            }
+            else if(isNaN(c))
+            {
+            alert("Password must start with a number");
+            return;
+            }
+            else
+            {
+            alert("Correct Data");
+            return ;
+            }
+            
+            }
+    </script>
+  </body>
+</html>
